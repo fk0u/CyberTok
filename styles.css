@@ -1,0 +1,138 @@
+:root {
+    --silver: #c0c0c0;
+    --dark-silver: #a9a9a9;
+    --metal-gray: #2c2c2c;
+    --black: #1b1b1b;
+    --white: #ffffff;
+    --text-silver: #f5f5f5;
+}
+
+body {
+    background: linear-gradient(135deg, var(--black), var(--metal-gray));
+    color: var(--text-silver);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--white);
+    text-shadow: 0 0 10px var(--silver);
+}
+
+.hero-subtitle {
+    margin: 20px 0;
+    font-size: 18px;
+    color: var(--silver);
+}
+
+.hero-form {
+    margin-top: 20px;
+}
+
+.input-url {
+    width: 60%;
+    padding: 10px 15px;
+    border: 2px solid var(--silver);
+    background: var(--dark-silver);
+    color: var(--white);
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* General Card Style */
+.card {
+    background: linear-gradient(145deg, var(--black), var(--metal-gray));
+    border: 1px solid var(--dark-silver);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.7), -4px -8px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Card Content Style */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.space-x-4 {
+    gap: 16px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--dark-silver);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.text-lg {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--silver);
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    color: var(--dark-silver);
+}
+
+.caption {
+    font-size: 0.875rem;
+    color: var(--text-silver);
+}
+
+.video {
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--dark-silver);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: linear-gradient(to right, var(--dark-silver), var(--silver), var(--text-silver));
+    color: var(--black);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, var(--text-silver), var(--silver), var(--dark-silver));
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--silver);
+    margin-bottom: 16px;
+}

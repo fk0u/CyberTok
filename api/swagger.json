@@ -1,0 +1,637 @@
+{
+    "openapi": "3.1.1",
+    "info": {
+      "title": "TiklyDown API",
+      "description": "TiklyDown API is a simple API that allows you to download TikTok videos. [Official Website](https://tiklydown.eu.org)\nIf anyone has questions about tiklydown, please [Contact Us](mailto:https://t.me/caliphdev).\nPowered by [NevaCloud](https://nevacloud.com/?ref=b3qsv2lxym)",
+      "version": "1.2.0"
+    },
+    "paths": {
+      "/api/stalk": {
+        "get": {
+          "tags": [
+            "Stalk"
+          ],
+          "summary": "Stalk a TikTok user",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "query",
+              "description": "Username of the TikTok user to stalk",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 200
+                      },
+                      "data": {
+                        "$ref": "#/components/schemas/TikTokUserMeta"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "No user provided"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 500
+                      },
+                      "error": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/download": {
+        "get": {
+          "summary": "Download a video or photo from TikTok Post (ACTIVE)",
+          "description": "Download a video or photo from TikTok Post",
+          "operationId": "Download",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "description": "The URL of the TikTok video",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TikTokMeta"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "Download"
+          ]
+        }
+      },
+      "/api/download/v2": {
+        "get": {
+          "summary": "Download videos or photos from TikTok Post using MusicalDown Server (ACTIVE)",
+          "description": "Download videos or photos from TikTok Post using MusicalDown Server",
+          "operationId": "DownloadV2",
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "description": "URL of the content to download",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "number",
+                    "example": 400
+                  },
+                  "error": {
+                    "type": "string",
+                    "example": "No URL provided"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "Download"
+          ]
+        }
+      },
+      "/api/download/v3": {
+        "get": {
+          "summary": "Download videos or photos from TikTok Post using SSSTik Server (ACTIVE)",
+          "description": "Download videos or photos from TikTok Post using SSSTik Server",
+          "operationId": "DownloadV3",
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "description": "URL of the content to download",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "number",
+                    "example": 200
+                  },
+                  "result": {
+                    "type": "string",
+                    "example": "Content data"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "Download"
+          ]
+        }
+      },
+      "/api/download/v4": {
+        "get": {
+          "summary": "Download videos or photos from TikTok Post using TTSave Server (ACTIVE)",
+          "description": "Download videos or photos from TikTok Post using TTSave Server",
+          "operationId": "DownloadV4",
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "description": "URL of the content to download",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "number",
+                    "example": 200
+                  },
+                  "result": {
+                    "type": "string",
+                    "example": "Content data"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "Download"
+          ]
+        }
+      },
+      "/api/download/v5": {
+        "get": {
+          "summary": "Download videos or photos from TikTok Post using TikWM Server (ACTIVE)",
+          "description": "Download videos or photos from TikTok Post using TikWM Server",
+          "operationId": "DownloadV5",
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "description": "URL of the content to download",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "number",
+                    "example": 200
+                  },
+                  "result": {
+                    "type": "string",
+                    "example": "Content data"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "Download"
+          ]
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Download",
+        "description": "Download a post from TikTok"
+      },
+      {
+        "name": "Stalk",
+        "description": "Stalk a user from TikTok"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "TikTokUserMeta": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "shortId": {
+                  "type": "string"
+                },
+                "uniqueId": {
+                  "type": "string"
+                },
+                "nickname": {
+                  "type": "string"
+                },
+                "avatarLarger": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "avatarMedium": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "avatarThumb": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "signature": {
+                  "type": "string"
+                },
+                "createTime": {
+                  "type": "integer"
+                },
+                "verified": {
+                  "type": "boolean"
+                },
+                "secUid": {
+                  "type": "string"
+                },
+                "ftc": {
+                  "type": "boolean"
+                },
+                "relation": {
+                  "type": "integer"
+                },
+                "openFavorite": {
+                  "type": "boolean"
+                },
+                "commentSetting": {
+                  "type": "integer"
+                },
+                "commerceUserInfo": {
+                  "type": "object",
+                  "properties": {
+                    "commerceUser": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "duetSetting": {
+                  "type": "integer"
+                },
+                "stitchSetting": {
+                  "type": "integer"
+                },
+                "privateAccount": {
+                  "type": "boolean"
+                },
+                "secret": {
+                  "type": "boolean"
+                },
+                "isADVirtual": {
+                  "type": "boolean"
+                },
+                "roomId": {
+                  "type": "string"
+                },
+                "uniqueIdModifyTime": {
+                  "type": "integer"
+                },
+                "ttSeller": {
+                  "type": "boolean"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "downloadSetting": {
+                  "type": "integer"
+                },
+                "profileTab": {
+                  "type": "object",
+                  "properties": {
+                    "showMusicTab": {
+                      "type": "boolean"
+                    },
+                    "showQuestionTab": {
+                      "type": "boolean"
+                    },
+                    "showPlayListTab": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "followingVisibility": {
+                  "type": "integer"
+                },
+                "recommendReason": {
+                  "type": "string"
+                },
+                "nowInvitationCardUrl": {
+                  "type": "string"
+                },
+                "nickNameModifyTime": {
+                  "type": "integer"
+                },
+                "isEmbedBanned": {
+                  "type": "boolean"
+                },
+                "canExpPlaylist": {
+                  "type": "boolean"
+                },
+                "profileEmbedPermission": {
+                  "type": "integer"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "eventList": {
+                  "type": "array",
+                  "items": {
+  
+                  }
+                },
+                "suggestAccountBind": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "stats": {
+              "type": "object",
+              "properties": {
+                "followerCount": {
+                  "type": "integer"
+                },
+                "followingCount": {
+                  "type": "integer"
+                },
+                "heart": {
+                  "type": "integer"
+                },
+                "heartCount": {
+                  "type": "integer"
+                },
+                "videoCount": {
+                  "type": "integer"
+                },
+                "diggCount": {
+                  "type": "integer"
+                },
+                "friendCount": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "TikTokMeta": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "example": 123456789
+            },
+            "title": {
+              "type": "string",
+              "example": "Awesome TikTok Video"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time",
+              "example": "30 Jul 2023, 12:34 PM"
+            },
+            "stats": {
+              "type": "object",
+              "properties": {
+                "likeCount": {
+                  "type": "string",
+                  "example": "1.2M"
+                },
+                "commentCount": {
+                  "type": "string",
+                  "example": "36.5K"
+                },
+                "shareCount": {
+                  "type": "string",
+                  "example": "500K"
+                },
+                "playCount": {
+                  "type": "string",
+                  "example": "3M"
+                },
+                "saveCount": {
+                  "type": "string",
+                  "example": "10.8K"
+                }
+              }
+            },
+            "images": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://example.com/image.jpg"
+                  },
+                  "width": {
+                    "type": "integer",
+                    "example": 640
+                  },
+                  "height": {
+                    "type": "integer",
+                    "example": 480
+                  }
+                }
+              }
+            },
+            "video": {
+              "type": "object",
+              "properties": {
+                "noWatermark": {
+                  "type": "string",
+                  "example": "https://example.com/video-nowatermark.mp4"
+                },
+                "watermark": {
+                  "type": "string",
+                  "example": "https://example.com/video-watermark.mp4"
+                },
+                "cover": {
+                  "type": "string",
+                  "example": "https://example.com/video-cover.jpg"
+                },
+                "dynamic_cover": {
+                  "type": "string",
+                  "example": "https://example.com/video-dynamic-cover.jpg"
+                },
+                "origin_cover": {
+                  "type": "string",
+                  "example": "https://example.com/video-origin-cover.jpg"
+                },
+                "width": {
+                  "type": "integer",
+                  "example": 1280
+                },
+                "height": {
+                  "type": "integer",
+                  "example": 720
+                },
+                "durationFormatted": {
+                  "type": "string",
+                  "example": "3:20"
+                },
+                "duration": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "ratio": {
+                  "type": "string",
+                  "example": "16:9"
+                }
+              }
+            },
+            "music": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 987654321
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Catchy Song"
+                },
+                "author": {
+                  "type": "string",
+                  "example": "Awesome Artist"
+                },
+                "cover_hd": {
+                  "type": "string",
+                  "example": "https://example.com/music-cover-hd.jpg"
+                },
+                "cover_large": {
+                  "type": "string",
+                  "example": "https://example.com/music-cover-large.jpg"
+                },
+                "cover_medium": {
+                  "type": "string",
+                  "example": "https://example.com/music-cover-medium.jpg"
+                },
+                "cover_thumb": {
+                  "type": "string",
+                  "example": "https://example.com/music-cover-thumb.jpg"
+                },
+                "durationFormatted": {
+                  "type": "string",
+                  "example": "2:45"
+                },
+                "duration": {
+                  "type": "integer",
+                  "example": 165
+                },
+                "play_url": {
+                  "type": "string",
+                  "example": "https://example.com/music-play.mp3"
+                }
+              }
+            },
+            "author": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 123456
+                },
+                "name": {
+                  "type": "string",
+                  "example": "TikTokUser123"
+                },
+                "unique_id": {
+                  "type": "string",
+                  "example": "tiktokuser123"
+                },
+                "signature": {
+                  "type": "string",
+                  "example": "I'm TikTokUser123!"
+                },
+                "avatar": {
+                  "type": "string",
+                  "example": "https://example.com/avatar-medium.jpg"
+                },
+                "avatar_thumb": {
+                  "type": "string",
+                  "example": "https://example.com/avatar-thumb.jpg"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
