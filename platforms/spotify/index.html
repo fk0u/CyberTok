@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSpotify - Spotify Music Downloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        .acrylic-container {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .acrylic-container:hover {
+            transform: scale(1.05);
+        }
+        .text-spotify-green {
+            color: #1DB954; /* Spotify green color */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-black via-gray-800 to-gray-900 text-gray-300 font-sans">
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-6 lg:px-20 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-white">
+                <i class="fas fa-music"></i> CyberSpot
+            </a>
+            <nav class="hidden lg:flex space-x-6">
+                <a href="#hero" class="hover:text-gray-400">Home</a>
+                <a href="#features" class="hover:text-gray-400">Features</a>
+                <a href="#about" class="hover:text-gray-400">About</a>
+            </nav>
+            <button id="hamburger" class="lg:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden bg-gray-800">
+            <nav class="flex flex-col space-y-4 p-4">
+                <a href="#hero" class="hover:text-gray-400">Home</a>
+                <a href="#features" class="hover:text-gray-400">Features</a>
+                <a href="#about" class="hover:text-gray-400">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="text-center py-12 bg-gradient-to-br from-gray-900 to-gray-800 shadow-md">
+        <div class="container mx-auto px-6 lg:px-20">
+            <h1 class="text-4xl lg:text-6xl font-extrabold text-gray-100">Spotify Music Downloader</h1>
+            <p class="mt-4 text-lg lg:text-2xl text-gray-400">
+                Download and explore your favorite Spotify tracks and playlists in high quality!
+            </p>
+            <form id="actionForm" class="mt-6 flex flex-col lg:flex-row items-center justify-center gap-4 relative acrylic-container">
+                <input type="text" id="userQuery" placeholder="Enter Spotify URL or search query"
+                       class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                <select id="actionType" class="px-2 py-2 border border-gray-600 bg-gray-800 text-white rounded-lg">
+                    <option value="search">Search Tracks</option>
+                    <option value="trackInfo">Track Info</option>
+                    <option value="playlistInfo">Playlist Info</option>
+                    <option value="downloadTrack">Download Track</option>
+                </select>
+                <button type="submit" class="px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg hover:bg-green-500 transition-all">
+                    Go
+                </button>
+            </form>
+            
+            <!-- Loading Bar -->
+            <div id="loadingBar" class="hidden mt-4 w-full bg-gray-700 text-white rounded-lg p-2 text-center">
+                <span id="loadingMessage">Loading...</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-12 hidden">
+        <div class="container mx-auto px-6 lg:px-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 bg-gray-900">
+        <div class="container mx-auto px-6 lg:px-20">
+            <h2 class="text-center text-3xl lg:text-4xl font-bold text-gray-100">Why Choose CyberSpotify?</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-lg text-center hover:scale-105 transition-transform">
+                    <i class="fas fa-bolt text-3xl text-spotify-green"></i>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mt-4">Fast Downloads</h3>
+                    <p class="mt-4 text-gray-300">
+                        Instantly download your favorite Spotify tracks and playlists.
+                    </p>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-lg text-center hover:scale-105 transition-transform">
+                    <i class="fas fa-music text-3xl text-spotify-green"></i>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mt-4">High-Quality Audio</h3>
+                    <p class="mt-4 text-gray-300">
+                        Enjoy high-quality audio downloads for your favorite songs.
+                    </p>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-lg text-center hover:scale-105 transition-transform">
+                    <i class="fas fa-shield-alt text-3xl text-spotify-green"></i>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mt-4">Secure & Private</h3>
+                    <p class="mt-4 text-gray-300">
+                        Your data is safe and secure with us.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+        <div class="container mx-auto px-6 lg:px-20">
+            <h2 class="text-center text-3xl lg:text-4xl font-bold text-gray-100">About CyberSpotify</h2>
+            <p class="mt-6 max-w-4xl mx-auto text-center text-gray-300 lg:text-lg">
+                CyberSpotify is your go-to tool for downloading Spotify music and exploring playlists. We provide fast, high-quality downloads and a secure experience.
+            </p>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="https://www.instagram.com/kou.sozo" target="_blank" class="text-gray-300 hover:text-white text-2xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/alghani" target="_blank" class="text-gray-300 hover:text-white text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/fk0u" target="_blank" class="text-gray-300 hover:text-white text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="spotify.js"></script>
+</body>
+</html>

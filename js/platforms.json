@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Spotify",
+        "description": "Download Spotify music with easily.",
+        "icon": "fab fa-spotify",
+        "link": "/platforms/spotify",
+        "color": "text-green-400"
+    },
+    {
+        "name": "TikTok",
+        "description": "Download TikTok videos without watermarks.",
+        "icon": "fab fa-tiktok",
+        "link": "/platforms/tiktok",
+        "color": "text-gray-500"
+    },
+    {
+      "name": "Instagram",
+      "description": "Download Instagram photos and videos easily.",
+      "icon": "fab fa-instagram",
+      "link": "/platforms/instagram",
+      "color": "text-pink-500"
+    }
+    
+  ]
+  
