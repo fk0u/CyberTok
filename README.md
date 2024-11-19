@@ -49,7 +49,10 @@
 
 - ✅ TikTok Downloader
 - ✅ Spotify Downloader
-- 🚧 Instagram Downloader
+- ✅ Instagram Downloader
+- 🚧 YouTube Downloader
+- 🚧 Facebook Downloader
+- 🚧 Pinterest Downloader
 
 
 ## **Kontribusi**
