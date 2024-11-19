@@ -13,10 +13,10 @@
 
 ## **Tampilan**
 ### Desktop
-![Desktop View](https://via.placeholder.com/1000x600?text=Desktop+View)
+![Desktop View](img/cybersavepc.png)
 
 ### Mobile
-![Mobile View](https://via.placeholder.com/400x700?text=Mobile+View)
+![Mobile View](img/cybersavephone.png)
 
 ## **Teknologi yang Digunakan**
 - 💻 **Frontend**: HTML5, Tailwind CSS, JavaScript
